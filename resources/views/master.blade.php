@@ -8,7 +8,7 @@
         <meta content="Construction Company Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="{{asset('img')}}/favicon.ico" rel="icon">
+        <link href="img/favicon.ico" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,18 +16,18 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="{{asset('lib')}}/flaticon/font/flaticon.css" rel="stylesheet"> 
-        <link href="{{asset('lib')}}/animate/animate.min.css" rel="stylesheet">
-        <link href="{{asset('lib')}}/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="{{asset('lib')}}/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="{{asset('lib')}}/slick/slick.css" rel="stylesheet">
-        <link href="{{asset('lib')}}/slick/slick-theme.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet"> 
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="lib/slick/slick-theme.css" rel="stylesheet">
     <link href="{{asset('lib')}}/Monadi.ttf" rel="stylesheet" type="text/css">
     <script src="{{asset('js')}}/jquery/jquery-1.12.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
         <!-- Template Stylesheet -->
-        <link href="{{asset('css')}}/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -97,14 +97,16 @@
 
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto">
-                                <a href="/" class="nav-item nav-link active">Home</a>
-                                
+                                <a href="index.html" class="nav-item nav-link active">Home</a>
+                                <a href="about.html" class="nav-item nav-link">About</a>
+                                <a href="service.html" class="nav-item nav-link">Service</a>
+                                <a href="team.html" class="nav-item nav-link">Team</a>
+                                <a href="portfolio.html" class="nav-item nav-link">Project</a>
                                 <div class="nav-item dropdown">
-                                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Gallery</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu">
-                                        <a href="/addProduct" class="dropdown-item">Add Product</a>
-                                        <a href="/order" class="dropdown-item">Gallery Order</a>
-                                        <a href="/galleryList" class="dropdown-item">Gallery Items</a>
+                                        <a href="blog.html" class="dropdown-item">Blog Page</a>
+                                        <a href="single.html" class="dropdown-item">Single Page</a>
                                     </div>
                                 </div>
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -199,22 +201,22 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="{{asset('lib')}}/easing/easing.min.js"></script>
-        <script src="{{asset('lib')}}/wow/wow.min.js"></script>
-        <script src="{{asset('lib')}}/owlcarousel/owl.carousel.min.js"></script>
-        <script src="{{asset('lib')}}/isotope/isotope.pkgd.min.js"></script>
-        <script src="{{asset('lib')}}/lightbox/js/lightbox.min.js"></script>
-        <script src="{{asset('lib')}}/waypoints/waypoints.min.js"></script>
-        <script src="{{asset('lib')}}/counterup/counterup.min.js"></script>
-        <script src="{{asset('lib')}}/slick/slick.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
         
-        <script src="{{asset('js')}}/contact.js"></script>
-        <script src="{{asset('js')}}/jqBootstrapValidation.min.js"></script>
+        <script src="js/contact.js"></script>
+        <script src="js/jqBootstrapValidation.min.js"></script>
          <script type="module">
             import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.esm.browser.js'
           </script> 
           
         <!-- Template Javascript -->
-        <script src="{{asset('js')}}/main.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
