@@ -140,21 +140,7 @@ class galleryController extends Controller
     //     return response()->json($price);
     // }
 
-    // $units = [];
-
-    // foreach ($request->product as $key => $product) {
-    //     $units[] = [
-    //         'user_id' => 1,
-    //         'gallery_id' => $request->product[$key],
-    //         'amount' => $request->quantity[$key],
-    //         'date' => date('2021-06-27'),
-    //     ];
-    // }
-
-    // if (! empty($units)) {
-    //     DB::table('gallery_user')->insert($units);
-    // }
-
+    
 
 // public function storeOrder(Request $request){
       
