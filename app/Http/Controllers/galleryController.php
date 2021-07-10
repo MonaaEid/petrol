@@ -63,72 +63,57 @@ class galleryController extends Controller
         return view('gallery.galleryOrderTwo', compact('gallery'));
     }
 
-//     public function storeOrder(Request $request){
-//     // $request->validate( [
-//     //     // 'date' => 'required',
-//     //     'product' => 'required',
-//     //     'quantity' => 'required|',
-     
-//     // ]);
+    public function storeOrder(Request $request){
+        $request->validate( [
+            // 'date' => 'required',
+            'product.*' => 'required',
+            'quantity.*' => 'required|numeric',
+         
+        ]);
 
-//     // DB::beginTransaction();
+        /*DB::beginTransaction();
 
-//     // try {
+        try {*/
+            for ($i=0;$i<count($request['product']);$i++)
+        {
+                $gallery_user = new Gallery_User();
+                $gallery_user->user_id = 1;
+                $gallery_user->date = date('2021-06-27');
+                $gallery_user->gallery_id = (int)$request['product'][$i];
+                $gallery_user->amount = (int)$request['quantity'][$i];
+                $stock = DB::table('gallery')
+                        ->where('id','=', $request['product'])
+                        ->pluck('stock_no');
+                        //dd($stock[0]<$request['quantity'][0]);
+                        dd($stock[1]);
+                        if($stock[$i]<$request['quantity'][$i]){
+                            $request->session()->flash('status', 'no enough qty!');
+                            //dd($request['quantity']);
+                            return redirect()->back();
+                            //dd('aya');
+                        }
+                $gallery_user->save();
+                        //dd('hhhhhh');
+                $product=Gallery::findorfail((int)$request['product'][$i]);
+                //dd($product);
+                $product->stock_no=$product->stock_no - $request['quantity'][$i];
+                $product->save();
 
-//     // $stock= array();//place outside the loop
-   
-//         for ($i=0;$i<count(Request('product'));$i++)
-//     {
-//             $gallery_user = new Gallery_User(); 
-//             $gallery_user->user_id = 1;
-//             $gallery_user->date = date('2021-06-27');
-//             $gallery_user->gallery_id = (int)$request['product'][$i];
-//             $gallery_user->amount = (int)$request['quantity'][$i];
-//             $stock= DB::table('gallery')
-//                     ->where('id','=',$request['product'][$i])
-//                     ->pluck('stock_no');
-//                         // if($stock[$i]- $request['quantity'][$i]>0){
-//                         // $request->session()->flash('status', 'no enough qty!');  }    
-//                     // while($product->quantity - $item->qty<0);
-//                     //       $message[] = 'Not enough Product' . $item->id;
-//                     // dd($stock);
-//                     // DB::transaction(function () {
-//                     //     DB::table('gallery_user')->updateOrInsert(['amount' => $request['quantity'][$i]]);
-                    
-//                     //     DB::table('gallery')->where('id','=','$request['product'][$i]')->update('stock_no', );
-//                     // });
-//                     //dd($stock<$request['quantity']);
-                  
-//                     //     dd($stock);
-//                     //     return redirect()->back();
-//                         // dd('aya');
-//                         // dd($gallery_user->amount);
+                $request->session()->flash('status', 'successful');
+                return redirect()->back();
+         }
 
-//                     // }
-//             $gallery_user->save();
-//         }
-//     //         // $product=Gallery::findorfail((int)$request['product'][$i]);
-//     //         // dd($product);
-//     //         //$product->stock_no=$product->stock_no - $request['quantity'][$i];
-//     //         //$product->save();
+           /* DB::commit();
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+        }*/
 
-//             $request->session()->flash('status', 'successful');
-//             return redirect()->back();
-    
-
-//        /* DB::commit();
-//         // all good
-//     } catch (\Exception $e) {
-//         DB::rollback();
-//         // something went wrong
-//     }*/
-
-//     // $gallery_id = Gallery::get('id'); 
-//     // $gallery_qty= Gallery::get('stock_no'); 
-    
-// }
-
-
+        // $gallery_id = Gallery::get('id'); 
+        // $gallery_qty= Gallery::get('stock_no'); 
+        
+    }
     public  function priceTwo(Request $request )
     {
         $query= $request->get('productID');
@@ -171,33 +156,33 @@ class galleryController extends Controller
     // }
 
 
-public function storeOrder(Request $request){
+// public function storeOrder(Request $request){
       
-    $units = [];
-    $message= array();//place outside the loop
-    $stock = [];
-    // if($request->quantity<0)
-    // dd($stock);
+//     $units = [];
+//     $message= array();//place outside the loop
+//     $stock = [];
+//     // if($request->quantity<0)
+//     // dd($stock);
    
-    foreach ($request->product as $key => $product) {
-        $units[] = [
+//     foreach ($request->product as $key => $product) {
+//         $units[] = [
            
-            'user_id' => 1,
-            'gallery_id' => $request->product[$key],
-            'amount' => $request->quantity[$key],
-            'date' => date('2021-06-27'),
-        ];
-        $stock[]= DB::table('gallery')
-            ->where('id',$request->product[$key])
-            // ->where('stock_no','-',$request->quantity[$key],'>=',0)
-            ->pluck('stock_no');
-    } 
-    dd($stock);
-    // while($product->quantity - $item->qty<0);
-    // $message[] = 'Not enough Product' . $item->id;
-//  dd($request->product);
-    if (! empty($units)) {
-        DB::table('gallery_user')->insert($units);
-    }
-    }
+//             'user_id' => 1,
+//             'gallery_id' => $request->product[$key],
+//             'amount' => $request->quantity[$key],
+//             'date' => date('2021-06-27'),
+//         ];
+//         $stock[]= DB::table('gallery')
+//             ->where('id',$request->product[$key])
+//             // ->where('stock_no','-',$request->quantity[$key],'>=',0)
+//             ->pluck('stock_no');
+//     } 
+//     dd($stock);
+//     // while($product->quantity - $item->qty<0);
+//     // $message[] = 'Not enough Product' . $item->id;
+// //  dd($request->product);
+//     if (! empty($units)) {
+//         DB::table('gallery_user')->insert($units);
+//     }
+//     }
 }
