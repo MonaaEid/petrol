@@ -116,9 +116,7 @@ function fun2(index){
 
 <div class=" wow fadeInUp">
 
-                    {{-- @if(Session::has('status'))
-                        <p class="alert alert-info">{{ Session::get('status') }}</p>
-                    @endif --}}
+               
 
     <div v class="col-md-6 container contact-form">
       <div class="section-header text-center">
@@ -127,12 +125,7 @@ function fun2(index){
             <p class="alert alert-info">{{ Session::get('status') }}</p>
              
             @endif
-            {{-- @if(Session::has('warning'))
-            <p class="alert alert-info">{{ Session::get('warning') }}</p>
-           @foreach ($message as $item)
-             {{$item}}  
-           @endforeach
-            @endif --}}
+            
            
       </div>
     <div class="card-body contact-form " >
@@ -151,12 +144,8 @@ function fun2(index){
                               @endforeach
                       </ul>
               
-                  @endif
-                      {{-- @error('product[]')
-                                   <span class="invalid-feedback" role="alert">
-                                       <strong>{{ $message }}</strong>
-                                   </span>
-                       @enderror --}}
+                       @endif
+                     
                       
                       <div class="form-group row">
                         <div class="col-md-12">
