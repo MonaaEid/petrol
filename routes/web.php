@@ -29,7 +29,5 @@ Route::post('/editer/{id}/update','galleryController@update');
 
 
 
-
-// Route::get('/price', 'galleryController@fetch')->name('price');
 Route::get('/priceTwo', 'galleryController@priceTwo')->name('priceTwo');
 Route::get('/totalPriceUpdate', 'galleryController@totalPriceUpdate')->name('totalPriceUpdate');
