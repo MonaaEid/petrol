@@ -93,41 +93,48 @@
 }
 // let sum = op+op;
 // console.log(sum);
-// function fun2(index){
-//   // let inputID=index.parentNode.childNodes[5].id;
-//   // let selectID=index.value;
-//   let quantity=index.value;
-//   let productID=index.parentNode.childNodes[1].value;
-//   // console.log(quantity,dishID);
-//   $.ajax({
-//                   // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-//                   method:'GET' ,
-//                   url:"{{route ('totalPriceUpdate')}}" ,
-//                   data:{quantity: quantity, productID: productID} ,
-//                   // dataType:'json' ,//return data will be json
-//                   success: function (response) {
-//                         index.parentNode.childNodes[5].value=response;
-//                         // $('.totalPrice').val(totalPrice.response)
-//                   }
-//               });
-// }
+function fun2(index){
+  // let inputID=index.parentNode.childNodes[5].id;
+  // let selectID=index.value;
+  let quantity=index.value;
+  let productID=index.parentNode.childNodes[1].value;
+  // console.log(quantity,dishID);
+  $.ajax({
+                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                  method:'GET' ,
+                  url:"{{route ('totalPriceUpdate')}}" ,
+                  data:{quantity: quantity, productID: productID} ,
+                  // dataType:'json' ,//return data will be json
+                  success: function (price) {
+                        index.parentNode.childNodes[5].value=price;
+                        // $('.totalPrice').val(totalPrice.response)
+                  }
+              });
+}
 
 </script>
 
 <div class=" wow fadeInUp">
 
-                    @if(Session::has('status'))
+                    {{-- @if(Session::has('status'))
                         <p class="alert alert-info">{{ Session::get('status') }}</p>
-                    @endif
+                    @endif --}}
 
     <div v class="col-md-6 container contact-form">
       <div class="section-header text-center">
         <h1 ><center>Gallery Order</center></h1>
             @if(Session::has('status'))
-                <p class="alert alert-info">{{ Session::get('status') }}</p>
+            <p class="alert alert-info">{{ Session::get('status') }}</p>
+             
             @endif
+            {{-- @if(Session::has('warning'))
+            <p class="alert alert-info">{{ Session::get('warning') }}</p>
+           @foreach ($message as $item)
+             {{$item}}  
+           @endforeach
+            @endif --}}
+           
       </div>
-      
     <div class="card-body contact-form " >
     
               <form action="/storeOrder" method="post">
@@ -159,21 +166,21 @@
                         </div>
                       </div>
                       
-                      <div class="form-group row">
-                        <div class="col-md-12">
+                      {{-- <div class="form-group row">
+                        <div class="col-md-12"> --}}
                           <span>add items </span>
                             <input type="button" class="btn btn-outline-dark " id="add" value="add">
-                        </div>
-                      </div>
+                        {{-- </div>
+                      </div> --}}
 
                   <div class="form-group row form-inline mb-2">
-                      <select type="text" value="المنتج" class="form-control mo"><option selected disabled>المنتج</option></select>
+                      <span style="margin: 30px" class="form-control"> المنتج  </span>
                       <input value="العدد" type="text" min="1" class="form-control">
                       <input value="السعر" type="text" class="form-control mo">
                   </div>
                     
                       <div id="addHere"></div>
-                        <span id="total"></span>
+                        {{-- <span id="total"></span> --}}
 
                         <div class="form-group row">
                           <div class="col-md-12">
