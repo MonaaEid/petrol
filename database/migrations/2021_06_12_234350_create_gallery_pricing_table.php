@@ -15,10 +15,11 @@ class CreateGalleryPricingTable extends Migration
     {
         Schema::create('gallery_pricing', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('pricing_id');
             $table->unsignedInteger('gallery_id');
-
-            $table->foreign('pricing_id')->references('id')->on('pricing');
+            $table->date('date');
+            $table->float('sale_price');
+            $table->float('purchase_price');
+            $table->float('commission');
             $table->foreign('gallery_id')->references('id')->on('gallery');
             
             $table->timestamps();
