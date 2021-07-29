@@ -82,13 +82,8 @@ public function storeOrder(Request $request){
         $stock = \App\Gallery::where('id', $request->product[$key])->firstOrFail();
         if($stock->stock_no-$request->quantity[$key]<0)
         $message[] = 'Not enough quantity of product ' . $stock->product_name;
-
-
- 
     } 
-
- 
-
+    
     if(! empty($message)) {
             return redirect()->back()->withErrors($message);
     }
@@ -108,11 +103,9 @@ public function storeOrder(Request $request){
     public  function priceTwo(Request $request )
     {
         $query= $request->get('productID');
-        $one = DB::table('gallery_pricing')
+        $op = DB::table('gallery_pricing')
             ->where('gallery_id','=', $query)
-            ->pluck('pricing_id');
-        $op=DB::table('pricing')
-            ->where('id','=',$one)
+            ->latest('date')
             ->pluck('sale_price');
         $op=$op[0];
         // ($op);
@@ -123,11 +116,9 @@ public function storeOrder(Request $request){
         $query1= $request->get('quantity');
         $query2= $request->get('productID');
 
-        $one = DB::table('gallery_pricing')
-            ->where('id', $query2)
-            ->pluck('pricing_id');
-        $op=DB::table('pricing')
-            ->where('id',$one)
+        $op = DB::table('gallery_pricing')
+            ->where('gallery_id','=', $query2)
+            ->latest('date')
             ->pluck('sale_price');
         $op=$op[0];
         $price=$query1*$op;
