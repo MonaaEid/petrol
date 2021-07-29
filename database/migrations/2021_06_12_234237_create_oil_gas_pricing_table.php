@@ -16,10 +16,11 @@ class CreateOilGasPricingTable extends Migration
         Schema::create('oil_gas_pricing', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('oil_gas_id');
-            $table->unsignedInteger('pricing_id');
-
+            $table->date('date');
+            $table->float('sale_price');
+            $table->float('purchase_price');
+            $table->float('commission');
             $table->foreign('oil_gas_id')->references('id')->on('oil_gas');
-            $table->foreign('pricing_id')->references('id')->on('pricing');
             $table->timestamps();
         });
     }
