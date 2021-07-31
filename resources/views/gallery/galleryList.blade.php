@@ -1,17 +1,6 @@
 @extends('master')
 @section('main-content')
-{{-- <style type="text/css">
 
-
-</style> --}}
-<script>
-
-    function fun(index){
-      // return disabled='false';
-    alert('its a funk dunk')
-    }
-  
-</script>
 <div class="container-fluid screenFiller">
 <div class="mona">
 <h2>products</h2>
@@ -48,5 +37,20 @@
 
 </div>
 </div>
-{{ $gallery->links() }}
+
+<div class="blog">
+<div class="row">
+  <div class="col-12">
+      <ul class="pagination justify-content-center">
+          @if($gallery->currentPage() > 1)
+            <li class="page-item "><a class="page-link" href="{{$gallery->previousPageUrl()}}">Previous</a></li>
+          @endif
+            <li class="page-item">{{ $gallery->links() }}</li>
+          @if($gallery->hasMorePages())
+            <li class="page-item"><a class="page-link" href="{{$gallery->nextPageUrl()}}">Next</a></li>
+          @endif
+      </ul> 
+  </div>
+ </div>
+</div>
 @endsection
