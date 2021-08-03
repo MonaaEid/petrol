@@ -107,6 +107,15 @@
                                         <a href="/galleryList" class="dropdown-item">Gallery Items</a>
                                     </div>
                                 </div>
+                                <div class="nav-item dropdown">
+                                    <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Pricing</a>
+                                    <div class="dropdown-menu">
+                                        <a href="/gallery-pricing" class="dropdown-item">Add Gallery Pricing</a>
+                                        <a href="/gallery-pricing-list" class="dropdown-item">Gallery Pricing List</a>
+                                        <a href="/fuel-pricing" class="dropdown-item">Add Fuel Pricing</a>
+                                        <a href="/fuel-pricing-list" class="dropdown-item">Fuel Pricing List</a>
+                                    </div>
+                                </div>
                                 <a href="contact.html" class="nav-item nav-link">Contact</a>
                             </div>
                             <div class="ml-auto">
