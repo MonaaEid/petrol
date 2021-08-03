@@ -1,13 +1,14 @@
 @extends('master')
 @section('main-content')
-
 <div class="container-fluid screenFiller">
-<div class="mona">
-<h2>products</h2>
+
+  <div class="section-header text-center">
+    <h2>Gallery Products</h2>
+</div>
 <table class="table table-striped table-dark t">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      {{-- <th scope="col">#</th> --}}
       <th scope="col">id</th>
       <th scope="col">product name</th>
       <th scope="col">stock</th>
@@ -19,7 +20,7 @@
   	 @foreach($gallery as $gall)
 
     <tr>
-      <th scope="row"></th>
+      {{-- <th scope="row"></th> --}}
       <td>{{$gall->id}}</td>
       <td>{{$gall->product_name}}</td>
      
@@ -35,7 +36,7 @@
   </tbody>
 </table>
 
-</div>
+
 </div>
 
 <div class="blog">
@@ -53,4 +54,5 @@
   </div>
  </div>
 </div>
+{{-- {{ $gallery->links() }}  --}}
 @endsection

@@ -29,7 +29,7 @@
 
     @endif
             <div>
-                <button class="btn" type="submit" id="sendMessageButton">ارسال</button>
+                <button class="btn" type="submit" id="sendMessageButton">حفظ</button>
             </div>
         </form>
     </div>
