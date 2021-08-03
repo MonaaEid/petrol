@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddProductRequest;
 use App\Gallery;
 use App\Gallery_user;
+use App\Gallery_Pricing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +12,6 @@ class galleryController extends Controller
 {
     public function index(){
         $gallery = DB::table('gallery')->paginate(20);
-        // $gallery= Gallery::all()->paginate(15);
         return view('gallery.galleryList',compact('gallery'));
     }
     public function delete($id){
